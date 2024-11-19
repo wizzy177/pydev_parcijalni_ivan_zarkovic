@@ -3,90 +3,90 @@
         "id": 1,
         "name": "Laptop",
         "description": "15-inch display, 8GB RAM, 256GB SSD",
-        "price": 800.00
+        "price": 800.0
     },
     {
         "id": 2,
         "name": "Smartphone",
         "description": "6-inch display, 128GB storage",
-        "price": 500.00
+        "price": 500.0
     },
     {
         "id": 3,
         "name": "Headphones",
         "description": "Noise-canceling, wireless",
-        "price": 50.00
+        "price": 50.0
     },
     {
         "id": 4,
         "name": "Tablet",
         "description": "10-inch display, 64GB storage, WiFi",
-        "price": 300.00
+        "price": 300.0
     },
     {
         "id": 5,
         "name": "Monitor",
         "description": "24-inch Full HD display",
-        "price": 150.00
+        "price": 150.0
     },
     {
         "id": 6,
         "name": "Keyboard",
         "description": "Mechanical, RGB backlit",
-        "price": 25.00
+        "price": 25.0
     },
     {
         "id": 7,
         "name": "Mouse",
         "description": "Wireless, ergonomic design",
-        "price": 20.00
+        "price": 20.0
     },
     {
         "id": 8,
         "name": "External Hard Drive",
         "description": "1TB, USB 3.0",
-        "price": 100.00
+        "price": 100.0
     },
     {
         "id": 9,
         "name": "Printer",
         "description": "Inkjet, color printing",
-        "price": 120.00
+        "price": 120.0
     },
     {
         "id": 10,
         "name": "Webcam",
         "description": "1080p HD, autofocus",
-        "price": 60.00
+        "price": 60.0
     },
     {
         "id": 11,
         "name": "Speaker",
         "description": "Bluetooth, portable",
-        "price": 45.00
+        "price": 45.0
     },
     {
         "id": 12,
         "name": "Smartwatch",
         "description": "Fitness tracking, heart rate monitor",
-        "price": 150.00
+        "price": 150.0
     },
     {
         "id": 13,
         "name": "Router",
         "description": "Dual-band, WiFi 6 support",
-        "price": 70.00
+        "price": 70.0
     },
     {
         "id": 14,
         "name": "USB Flash Drive",
         "description": "64GB, USB 3.1",
-        "price": 10.00
+        "price": 10.0
     },
     {
         "id": 15,
         "name": "Gaming Console",
         "description": "4K HDR, 1TB storage",
-        "price": 400.00
+        "price": 400.0
     }
 ]

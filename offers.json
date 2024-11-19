@@ -8,22 +8,22 @@
                 "product_id": 1,
                 "product_name": "Laptop",
                 "description": "15-inch display, 8GB RAM, 256GB SSD",
-                "price": 800.00,
+                "price": 800.0,
                 "quantity": 1,
-                "item_total": 800.00
+                "item_total": 800.0
             },
             {
                 "product_id": 2,
                 "product_name": "Smartphone",
                 "description": "6-inch display, 128GB storage",
-                "price": 500.00,
+                "price": 500.0,
                 "quantity": 2,
-                "item_total": 1000.00
+                "item_total": 1000.0
             }
         ],
-        "sub_total": 1800.00,
-        "tax": 180.00,
-        "total": 1980.00
+        "sub_total": 1800.0,
+        "tax": 180.0,
+        "total": 1980.0
     },
     {
         "offer_number": 2,
@@ -34,30 +34,30 @@
                 "product_id": 3,
                 "product_name": "Headphones",
                 "description": "Noise-canceling, wireless",
-                "price": 50.00,
+                "price": 50.0,
                 "quantity": 3,
-                "item_total": 150.00
+                "item_total": 150.0
             },
             {
                 "product_id": 4,
                 "product_name": "Tablet",
                 "description": "10-inch display, 64GB storage, WiFi",
-                "price": 300.00,
+                "price": 300.0,
                 "quantity": 1,
-                "item_total": 300.00
+                "item_total": 300.0
             },
             {
                 "product_id": 7,
                 "product_name": "Mouse",
                 "description": "Wireless, ergonomic design",
-                "price": 20.00,
+                "price": 20.0,
                 "quantity": 2,
-                "item_total": 40.00
+                "item_total": 40.0
             }
         ],
-        "sub_total": 490.00,
-        "tax": 49.00,
-        "total": 539.00
+        "sub_total": 490.0,
+        "tax": 49.0,
+        "total": 539.0
     },
     {
         "offer_number": 3,
@@ -68,22 +68,22 @@
                 "product_id": 5,
                 "product_name": "Monitor",
                 "description": "24-inch Full HD display",
-                "price": 150.00,
+                "price": 150.0,
                 "quantity": 2,
-                "item_total": 300.00
+                "item_total": 300.0
             },
             {
                 "product_id": 6,
                 "product_name": "Keyboard",
                 "description": "Mechanical, RGB backlit",
-                "price": 25.00,
+                "price": 25.0,
                 "quantity": 5,
-                "item_total": 125.00
+                "item_total": 125.0
             }
         ],
-        "sub_total": 425.00,
-        "tax": 42.50,
-        "total": 467.50
+        "sub_total": 425.0,
+        "tax": 42.5,
+        "total": 467.5
     },
     {
         "offer_number": 4,
@@ -94,30 +94,30 @@
                 "product_id": 2,
                 "product_name": "Smartphone",
                 "description": "6-inch display, 128GB storage",
-                "price": 500.00,
+                "price": 500.0,
                 "quantity": 1,
-                "item_total": 500.00
+                "item_total": 500.0
             },
             {
                 "product_id": 4,
                 "product_name": "Tablet",
                 "description": "10-inch display, 64GB storage, WiFi",
-                "price": 300.00,
+                "price": 300.0,
                 "quantity": 2,
-                "item_total": 600.00
+                "item_total": 600.0
             },
             {
                 "product_id": 7,
                 "product_name": "Mouse",
                 "description": "Wireless, ergonomic design",
-                "price": 20.00,
+                "price": 20.0,
                 "quantity": 3,
-                "item_total": 60.00
+                "item_total": 60.0
             }
         ],
-        "sub_total": 1160.00,
-        "tax": 116.00,
-        "total": 1276.00
+        "sub_total": 1160.0,
+        "tax": 116.0,
+        "total": 1276.0
     },
     {
         "offer_number": 5,
@@ -128,22 +128,22 @@
                 "product_id": 3,
                 "product_name": "Headphones",
                 "description": "Noise-canceling, wireless",
-                "price": 50.00,
+                "price": 50.0,
                 "quantity": 4,
-                "item_total": 200.00
+                "item_total": 200.0
             },
             {
                 "product_id": 1,
                 "product_name": "Laptop",
                 "description": "15-inch display, 8GB RAM, 256GB SSD",
-                "price": 800.00,
+                "price": 800.0,
                 "quantity": 1,
-                "item_total": 800.00
+                "item_total": 800.0
             }
         ],
-        "sub_total": 1000.00,
-        "tax": 100.00,
-        "total": 1100.00
+        "sub_total": 1000.0,
+        "tax": 100.0,
+        "total": 1100.0
     },
     {
         "offer_number": 6,
@@ -154,30 +154,30 @@
                 "product_id": 4,
                 "product_name": "Tablet",
                 "description": "10-inch display, 64GB storage, WiFi",
-                "price": 300.00,
+                "price": 300.0,
                 "quantity": 3,
-                "item_total": 900.00
+                "item_total": 900.0
             },
             {
                 "product_id": 6,
                 "product_name": "Keyboard",
                 "description": "Mechanical, RGB backlit",
-                "price": 25.00,
+                "price": 25.0,
                 "quantity": 2,
-                "item_total": 50.00
+                "item_total": 50.0
             },
             {
                 "product_id": 5,
                 "product_name": "Monitor",
                 "description": "24-inch Full HD display",
-                "price": 150.00,
+                "price": 150.0,
                 "quantity": 1,
-                "item_total": 150.00
+                "item_total": 150.0
             }
         ],
-        "sub_total": 1100.00,
-        "tax": 110.00,
-        "total": 1210.00
+        "sub_total": 1100.0,
+        "tax": 110.0,
+        "total": 1210.0
     },
     {
         "offer_number": 7,
@@ -188,29 +188,29 @@
                 "product_id": 7,
                 "product_name": "Mouse",
                 "description": "Wireless, ergonomic design",
-                "price": 20.00,
+                "price": 20.0,
                 "quantity": 5,
-                "item_total": 100.00
+                "item_total": 100.0
             },
             {
                 "product_id": 2,
                 "product_name": "Smartphone",
                 "description": "6-inch display, 128GB storage",
-                "price": 500.00,
+                "price": 500.0,
                 "quantity": 1,
-                "item_total": 500.00
+                "item_total": 500.0
             },
             {
                 "product_id": 3,
                 "product_name": "Headphones",
                 "description": "Noise-canceling, wireless",
-                "price": 50.00,
+                "price": 50.0,
                 "quantity": 2,
-                "item_total": 100.00
+                "item_total": 100.0
             }
         ],
-        "sub_total": 700.00,
-        "tax": 70.00,
-        "total": 770.00
+        "sub_total": 700.0,
+        "tax": 70.0,
+        "total": 770.0
     }
 ]
