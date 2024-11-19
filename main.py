@@ -27,7 +27,7 @@ def save_data(filename, data):
 
 
 # TODO: Implementirajte funkciju za kreiranje nove ponude.
-def create_new_offer(offers, products, customers):
+def create_new_offer(offers: List[dict[str, Any]], products: List[dict[str, Any]], customers: List[dict[str, Any]]) -> None:
     """
     Prompt user to create a new offer by selecting a customer, entering date,
     choosing products, and calculating totals.
@@ -35,7 +35,94 @@ def create_new_offer(offers, products, customers):
     # Omogućite unos kupca
     # Izračunajte sub_total, tax i total
     # Dodajte novu ponudu u listu offers
-    pass
+    # Display customers and prompt for selection
+    print("\nDostupni kupci:")
+    for i, customer in enumerate(customers, start=1):
+        print(f"{i}. {customer['name']} (Email: {customer['email']})")
+    
+    try:
+        customer_index = int(input("Unesite broj za odabir kupca: ")) - 1
+        if customer_index < 0 or customer_index >= len(customers):
+            print("Neispravan izbor. Molimo pokušajte ponovno.")
+            return
+    except ValueError:
+        print("Neispravan unos. Molimo unesite broj.")
+        return
+    
+    selected_customer = customers[customer_index]
+
+    # Prompt for date input
+    from datetime import datetime
+    date_input = input("Unesite datum ponude (YYYY-MM-DD): ").strip()
+    try:
+        date = datetime.strptime(date_input, "%Y-%m-%d").strftime("%Y-%m-%d")
+    except ValueError:
+        print("Neispravan format datuma. Molimo koristite format YYYY-MM-DD.")
+        return
+
+    # Display products and prompt for selection and quantities
+    items: List[dict[str, Union[str, int, float]]] = []
+    print("\nDostupni proizvodi:")
+    for i, product in enumerate(products, start=1):
+        print(f"{i}. {product['name']} - ${product['price']:.2f} (ID: {product['id']})")
+    
+    while True:
+        try:
+            product_index = int(input("Unesite broj za odabir proizvoda (ili 0 za kraj): ")) - 1
+            if product_index == -1:
+                break
+            if product_index < 0 or product_index >= len(products):
+                print("Neispravan izbor proizvoda.")
+                continue
+            
+            selected_product = products[product_index]
+            quantity = int(input(f"Unesite kolicinu za '{selected_product['name']}': "))
+            if quantity <= 0:
+                print("Kolicina mora biti pozitivan broj.")
+                continue
+
+            item_total = selected_product['price'] * quantity
+            items.append({
+                "product_id": selected_product['id'],
+                "product_name": selected_product['name'],
+                "description": selected_product['description'],
+                "price": selected_product['price'],
+                "quantity": quantity,
+                "item_total": item_total
+            })
+
+        except ValueError:
+            print("Neispravan unos. Molimo unesite broj.")
+    
+    if not items:
+        print("Ponuda mora imati barem jedan proizvod.")
+        return
+
+    # Calculate totals
+    sub_total: float = sum(item['item_total'] for item in items)
+    tax: float = sub_total * 0.1  # Assume a 10% tax rate
+    total: float = sub_total + tax
+
+    # Create a new offer
+    new_offer_number: int = max((offer['offer_number'] for offer in offers), default=0) + 1
+    new_offer: dict[str, Any] = {
+        "offer_number": new_offer_number,
+        "customer": selected_customer['name'],
+        "date": date,
+        "items": items,
+        "sub_total": sub_total,
+        "tax": tax,
+        "total": total
+    }
+
+    # Append the new offer to the offers list
+    offers.append(new_offer)
+
+    # Spremanje novih podataka u JSON file
+    save_data(OFFERS_FILE, offers)
+    
+    print("\nNova ponuda je uspješno kreirana!")
+    print_offer(new_offer)
 
 
 # TODO: Implementirajte funkciju za upravljanje proizvodima.
@@ -107,13 +194,13 @@ def manage_products(products: List[dict]) -> None:
             except ValueError:
                 print("Neispravan unos cijene. Cijena nije promjenjena.")
 
-        print("Proizvod izmjenjen uspjesno!")
+        print("Proizvod izmjenjen uspjesno4!")
         
         # Spremanje novih podataka u JSON file
         save_data(PRODUCTS_FILE, products)
 
     else:
-        print("Invalid choice. Please enter 1 or 2.")
+        print("Neispravan izbor. Molim odaberite 1 ili 2")
 
 
 # TODO: Implementirajte funkciju za upravljanje kupcima.
@@ -124,20 +211,20 @@ def manage_customers(customers: List[dict]) -> None:
     # Za dodavanje: omogući unos imena kupca, emaila i unos VAT ID-a
     # Za pregled: prikaži listu svih kupaca
 
-    print("\nManage Customers")
-    print("1. Add a new customer")
-    print("2. View all customers")
+    print("\nUpravljanje kupcima")
+    print("1. Dodaj novog kupca")
+    print("2. Vidi sve kupce")
     
-    choice = input("Enter your choice (1 or 2): ")
+    choice = input("Unesite svoj izbor (1 or 2): ")
     
     # Dodavanje novog kupca
     if choice == '1':
-        name = input("Enter customer name: ").strip()
-        email = input("Enter customer email: ").strip()
-        vat_id = input("Enter VAT ID: ").strip()
+        name = input("Unesi ime kupca: ").strip()
+        email = input("Unesi email kupca: ").strip()
+        vat_id = input("Unesi VAT ID: ").strip()
         
         if not name or not email or not vat_id:
-            print("All fields are required. Please provide valid input.")
+            print("Sva polja su obavezna.")
             return
         
         
@@ -148,7 +235,7 @@ def manage_customers(customers: List[dict]) -> None:
         }
         
         customers.append(new_customer)
-        print("New customer added successfully!")
+        print("Novi kupac dodan uspjesno!")
         
         # Spremanje novih podataka u JSON file
         save_data(CUSTOMERS_FILE, customers)
@@ -156,13 +243,13 @@ def manage_customers(customers: List[dict]) -> None:
     # Lista svih kupaca
     elif choice == '2':
         if not customers:
-            print("No customers found.")
+            print("Nije pronaden kupac.")
         else:
-            print("\nList of Customers:")
+            print("\nLista kupaca:")
             for i, customer in enumerate(customers, start=1):
                 print(f"{i}. Name: {customer['name']}, Email: {customer['email']}, VAT ID: {customer['vat_id']}")
     else:
-        print("Invalid choice. Please enter 1 or 2.")
+        print("Neispravan izbor. Molim odaberite 1 ili 2.")
 
 
 
@@ -173,20 +260,20 @@ def display_offers(offers: List[dict[str, Any]]) -> None:
     """
     # Omogućite izbor pregleda: sve ponude, po mjesecu ili pojedinačna ponuda
     # Prikaz relevantnih ponuda na temelju izbora
-    print("\nSelect an option to view offers:")
-    print("1. View all offers")
-    print("2. View offers for a specific month")
-    print("3. View details of a specific offer by ID")
+    print("\nIzbor pregleda ponuda:")
+    print("1. Vidi sve ponude")
+    print("2. Vidi ponude po mjesecu")
+    print("3. Vidi detalje ponude po ID-u")
 
-    choice = input("Enter your choice (1-3): ").strip()
+    choice = input("Unesi izbor (1-3): ").strip()
 
     if choice == "1":
-        print("\nDisplaying all offers:")
+        print("\nPrikaz svih ponuda:")
         for offer in offers:
             print_offer_summary(offer)
 
     elif choice == "2":
-        month = input("\nEnter month (YYYY-MM): ").strip()
+        month = input("\nUnesi Mjesec (YYYY-MM): ").strip()
         try:
             # Validate input date format
             from datetime import datetime
@@ -195,30 +282,30 @@ def display_offers(offers: List[dict[str, Any]]) -> None:
                 offer for offer in offers if offer["date"].startswith(month)
             ]
             if filtered_offers:
-                print(f"\nOffers for {month}:")
+                print(f"\nPonude za {month}:")
                 for offer in filtered_offers:
                     print_offer_summary(offer)
             else:
-                print(f"No offers found for {month}.")
+                print(f"Nema ponuda za {month}.")
         except ValueError:
-            print("Invalid date format. Please use YYYY-MM.")
+            print("Neispravan fromat datuma. Molim koristiti YYYY-MM.")
 
     elif choice == "3":
         try:
-            offer_id = int(input("\nEnter the offer ID: ").strip())
+            offer_id = int(input("\nUnesi ID ponude: ").strip())
             offer = next(
                 (o for o in offers if o["offer_number"] == offer_id), None
             )
             if offer:
-                print("\nDisplaying selected offer details:")
+                print("\nPrikaz detalja ponude:")
                 print_offer(offer)
             else:
-                print(f"No offer found with ID {offer_id}.")
+                print(f"Nije pronadena ponuda po ID-u {offer_id}.")
         except ValueError:
-            print("Invalid ID. Please enter a numeric value.")
+            print("Nevaljan ID. Unesite broj.")
 
     else:
-        print("Invalid choice. Please select a valid option (1-3).")
+        print("Neispravan izbor. Unesite validnu opciju (1-3).")
 
 
 def print_offer_summary(offer: dict[str, Any]) -> None:
